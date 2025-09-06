@@ -186,7 +186,7 @@ const CourseDetail = () => {
                           ) : contentItem.type === "video" ? (
                             <div>
                               <p className="font-semibold text-gray-800 mb-2">Video Lesson</p>
-                              <div className="aspect-w-16 aspect-h-9">
+                              <div className="aspect-w-4 aspect-h-3">
                                 <iframe
                                   src={contentItem.url}
                                   title={contentItem.lesson}
