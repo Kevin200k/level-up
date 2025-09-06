@@ -14,6 +14,8 @@
             {
               "lesson": "Introduction to Computers",
               "type": "video",
+              "provider": "youtube",
+              "url": "https://www.youtube.com/embed/dQw4w9WgXcQ",
               "content": "This lesson introduces what a computer is, basic hardware components like CPU, memory, and storage, and how they work together with software."
             },
             {
@@ -116,6 +118,8 @@
             {
               "lesson": "Intro to Programming with Python",
               "type": "video",
+              "provider": "youtube",
+              "url": "https://www.youtube.com/embed/dQw4w9WgXcQ",
               "content": "Learn the basics of Python: variables, loops, conditionals, and simple data structures like lists."
             },
             {
@@ -149,6 +153,8 @@
             {
               "lesson": "Using Pandas for Data Analysis",
               "type": "video",
+              "provider": "youtube",
+              "url": "https://www.youtube.com/embed/dQw4w9WgXcQ",
               "content": "Pandas is a Python library for working with structured data. Learn about DataFrames, filtering, and basic analysis."
             }
           ]
@@ -198,6 +204,8 @@
             {
               "lesson": "Newton’s First Law",
               "type": "video",
+              "provider": "youtube",
+              "url": "https://www.youtube.com/embed/dQw4w9WgXcQ",
               "content": "An object remains at rest, or in uniform motion, unless acted upon by a force. Learn real-world examples of inertia."
             },
             {
@@ -238,6 +246,8 @@
             {
               "lesson": "Introduction to Quantum Mechanics",
               "type": "video",
+              "provider": "youtube",
+              "url": "https://www.youtube.com/embed/dQw4w9WgXcQ",
               "content": "Explore wave-particle duality, uncertainty principle, and quantum states."
             },
             {
@@ -298,6 +308,8 @@
             {
               "lesson": "Understanding Limits",
               "type": "video",
+              "provider": "youtube",
+              "url": "https://www.youtube.com/embed/dQw4w9WgXcQ",
               "content": "Limits form the foundation of calculus. Learn how functions behave as inputs approach a value."
             },
             {
@@ -315,6 +327,8 @@
             {
               "lesson": "Derivatives in Real Life Problems",
               "type": "video",
+              "provider": "youtube",
+              "url": "https://www.youtube.com/embed/dQw4w9WgXcQ",
               "content": "See how derivatives are used in velocity, optimization, and growth/decay models."
             },
             {
@@ -375,6 +389,8 @@
             {
               "lesson": "Computer Networks Explained",
               "type": "video",
+              "provider": "youtube",
+              "url": "https://www.youtube.com/embed/dQw4w9WgXcQ",
               "content": "Learn how devices connect through LANs, WANs, and the internet. Topics include IP, routers, and switches."
             },
             {
@@ -397,6 +413,8 @@
             {
               "lesson": "Introduction to Penetration Testing",
               "type": "video",
+              "provider": "youtube",
+              "url": "https://www.youtube.com/embed/dQw4w9WgXcQ",
               "content": "An introduction to ethical hacking, common vulnerabilities, and penetration testing methodology."
             }
           ]

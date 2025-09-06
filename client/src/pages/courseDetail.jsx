@@ -129,15 +129,8 @@ const CourseDetail = () => {
                     >
                       <div className="flex items-center space-x-3">
                         {getIconForType(contentItem.type)}
-                        <div className="flex-grow">
-                          <Link
-                            to={contentItem.url || '#'}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="hover:underline"
-                          >
+                        <div className="flex-grow hover:underline">
                             <p className="medium_text">{contentItem.lesson}</p>
-                          </Link>
                           <p className="text-xs text-gray-500 capitalize">
                             {contentItem.type}
                           </p>
@@ -159,8 +152,57 @@ const CourseDetail = () => {
                       </div>
 
                       {isOpen && (
-                        <div className="mt-3 text-gray-600 text-sm border-t pt-2">
-                          Course Not Available Yet! Waiting On iDubem!
+                        <div className="mt-3 text-gray-600 text-sm border-t pt-2 space-y-3">
+                          {contentItem.type === "quiz" ? (
+                            <div>
+                              <p className="font-semibold text-gray-800 mb-2">Quiz</p>
+                              {contentItem.questions && contentItem.questions.map((q, i) => (
+                                <div key={i} className="mb-3">
+                                  <p className="font-medium">{i + 1}. {q.question}</p>
+                                  <div className="ml-4 space-y-1">
+                                    {q.options.map((opt, j) => (
+                                      <label key={j} className="flex items-center space-x-2">
+                                        <input 
+                                          type="radio" 
+                                          name={`question-${i}`} 
+                                          value={opt} 
+                                          className="text-blue-500"
+                                        />
+                                        <span>{opt}</span>
+                                      </label>
+                                    ))}
+                                  </div>
+                                  <p className="text-green-600 mt-1 text-xs">
+                                    Correct Answer: {q.answer}
+                                  </p>
+                                </div>
+                              ))}
+                            </div>
+                          ) : contentItem.type === "project" ? (
+                            <div>
+                              <p className="font-semibold text-gray-800 mb-1">Project Instructions:</p>
+                              <p>{contentItem.instructions}</p>
+                            </div>
+                          ) : contentItem.type === "video" ? (
+                            <div>
+                              <p className="font-semibold text-gray-800 mb-2">Video Lesson</p>
+                              <div className="aspect-w-16 aspect-h-9">
+                                <iframe
+                                  src={contentItem.url}
+                                  title={contentItem.lesson}
+                                  frameBorder="0"
+                                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                  allowFullScreen
+                                  className="w-full h-full rounded-lg shadow-md"
+                                ></iframe>
+                              </div>
+                              <p className="mt-2 text-gray-600 text-sm">{contentItem.content}</p>
+                            </div>
+                          ) : (
+                            <div>
+                              <p>{contentItem.content}</p>
+                            </div>
+                          )}
                         </div>
                       )}
                     </div>
