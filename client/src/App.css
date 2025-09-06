@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+
+/* -----Nav section------ */
+.nav_parent{
+  @apply w-full flex justify-center items-center p-4;
+}
+
+.search_bar{
+  @apply w-72 h-10 rounded-md border-2 p-2 text-gray-500
+}
+/* ---------------------- */
+
+
+/* Text */
+.section_heading{
+  @apply text-4xl font-extrabold text-gray-900 mb-2;
+}
+
+.small_background_text{
+  @apply bg-blue-100 text-blue-800 text-sm font-semibold px-3 py-1 rounded-full;
+}
+
+.medium_text{
+  @apply font-medium text-gray-800 
+}
+
+.in_container_medium_description{
+  @apply text-sm text-gray-600
+}
+/* ----------------------- */
+
+
+/* ---------- Containers --------- */
+.roadmap_container {
+  @apply w-full flex flex-col gap-6 mt-4 h-[50%] overflow-y-auto;
+}
+
+  .course_container{
+    @apply w-full h-11 ;
+  }
+
+  .second_section_image_container {
+    @apply w-full h-[50%] bg-green-200 rounded-md
+  }
+  /* ---------------------------- */
+
+
+  /* --------------Loader---------------- */
+  .loader_container{
+    @apply flex justify-center items-center min-h-screen
+  }
+
+  .loader{
+    @apply animate-spin rounded-full h-12 w-12 border-4 border-blue-500 border-t-transparent
+  }
+  /* ------------------------------- */

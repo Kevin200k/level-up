@@ -1,0 +1,223 @@
+{
+  "courses": [
+    {
+      "id": 0,
+      "title": "Frontend Development",
+      "description": "Learn how to build modern, responsive websites and web apps from scratch.",
+      "duration": "6 months",
+      "roadmap": [
+        {
+          "stage": "Introduction",
+          "topics": ["Basics of Computers", "How the Web Works"],
+          "duration": "2 weeks",
+          "content": [
+            { "lesson": "Introduction to Computers", "type": "video", "url": "https://example.com/intro-to-computers" },
+            { "lesson": "How the Internet Works", "type": "article", "url": "https://developer.mozilla.org/en-US/docs/Learn/Common_questions/How_does_the_Internet_work" },
+            { "lesson": "Quiz: Basics of Web", "type": "quiz" }
+          ]
+        },
+        {
+          "stage": "Core Concepts",
+          "topics": ["HTML & CSS"],
+          "duration": "4 weeks",
+          "content": [
+            { "lesson": "HTML Fundamentals", "type": "video", "url": "https://example.com/html-fundamentals" },
+            { "lesson": "CSS Styling Basics", "type": "video", "url": "https://example.com/css-styling" },
+            { "lesson": "Practical: Build a Personal Portfolio", "type": "project" }
+          ]
+        },
+        {
+          "stage": "Advanced",
+          "topics": ["JavaScript", "React"],
+          "duration": "6 weeks",
+          "content": [
+            { "lesson": "JavaScript Essentials", "type": "video", "url": "https://example.com/javascript-essentials" },
+            { "lesson": "React Basics", "type": "video", "url": "https://example.com/react-basics" },
+            { "lesson": "React Project: Todo App", "type": "project" }
+          ]
+        },
+        {
+          "stage": "Projects",
+          "topics": ["Portfolio Website"],
+          "duration": "1 month",
+          "content": [
+            { "lesson": "Capstone: Build Your Portfolio Website", "type": "project" },
+            { "lesson": "Deploying to Netlify", "type": "tutorial", "url": "https://example.com/deploy-to-netlify" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "title": "Data Science",
+      "description": "Master the skills to analyze data, build models, and derive insights.",
+      "duration": "9 months",
+      "roadmap": [
+        {
+          "stage": "Introduction",
+          "topics": ["Programming Fundamentals"],
+          "duration": "1 week",
+          "content": [
+            { "lesson": "Intro to Programming with Python", "type": "video", "url": "https://example.com/python-intro" },
+            { "lesson": "Quiz: Basic Python", "type": "quiz" }
+          ]
+        },
+        {
+          "stage": "Core Concepts",
+          "topics": ["Python Basics", "Data Handling"],
+          "duration": "4 weeks",
+          "content": [
+            { "lesson": "Working with Lists & Dictionaries", "type": "article" },
+            { "lesson": "Using Pandas for Data Analysis", "type": "video", "url": "https://example.com/pandas-basics" }
+          ]
+        },
+        {
+          "stage": "Advanced",
+          "topics": ["Machine Learning Models"],
+          "duration": "6 weeks",
+          "content": [
+            { "lesson": "Supervised vs Unsupervised Learning", "type": "video" },
+            { "lesson": "Build a Linear Regression Model", "type": "project" }
+          ]
+        },
+        {
+          "stage": "Projects",
+          "topics": ["Data Analysis Project"],
+          "duration": "2 weeks",
+          "content": [
+            { "lesson": "Capstone: Predict Housing Prices", "type": "project" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Physics Fundamentals",
+      "description": "Explore the principles of classical and modern physics.",
+      "duration": "3 months",
+      "roadmap": [
+        {
+          "stage": "Introduction",
+          "topics": ["Forces and Motion"],
+          "duration": "2 weeks",
+          "content": [
+            { "lesson": "Newton’s First Law", "type": "video" },
+            { "lesson": "Quiz: Basic Motion", "type": "quiz" }
+          ]
+        },
+        {
+          "stage": "Core Concepts",
+          "topics": ["Newton’s Laws"],
+          "duration": "2 weeks",
+          "content": [
+            { "lesson": "Newton’s Second Law in Action", "type": "article" },
+            { "lesson": "Lab Simulation: Motion of Objects", "type": "simulation" }
+          ]
+        },
+        {
+          "stage": "Advanced",
+          "topics": ["Quantum Physics"],
+          "duration": "4 weeks",
+          "content": [
+            { "lesson": "Introduction to Quantum Mechanics", "type": "video" },
+            { "lesson": "Double Slit Experiment", "type": "article" }
+          ]
+        },
+        {
+          "stage": "Projects",
+          "topics": ["Physics Simulation"],
+          "duration": "1 month",
+          "content": [
+            { "lesson": "Build a Physics Simulation with Python", "type": "project" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Calculus I",
+      "description": "Develop a strong foundation in calculus concepts and applications.",
+      "duration": "6 months",
+      "roadmap": [
+        {
+          "stage": "Introduction",
+          "topics": ["Numbers and Arithmetic"],
+          "duration": "1 week",
+          "content": [
+            { "lesson": "Review: Algebra & Functions", "type": "article" },
+            { "lesson": "Quiz: Pre-Calculus Basics", "type": "quiz" }
+          ]
+        },
+        {
+          "stage": "Core Concepts",
+          "topics": ["Derivatives"],
+          "duration": "4 weeks",
+          "content": [
+            { "lesson": "Understanding Limits", "type": "video" },
+            { "lesson": "First Principles of Derivatives", "type": "article" }
+          ]
+        },
+        {
+          "stage": "Advanced",
+          "topics": ["Statistical Inference"],
+          "duration": "4 weeks",
+          "content": [
+            { "lesson": "Derivatives in Real Life Problems", "type": "video" },
+            { "lesson": "Optimization Exercises", "type": "project" }
+          ]
+        },
+        {
+          "stage": "Projects",
+          "topics": ["Math Problem Sets"],
+          "duration": "2 weeks",
+          "content": [
+            { "lesson": "Capstone: Solve Applied Calculus Problems", "type": "project" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Cybersecurity Basics",
+      "description": "Learn to secure networks, applications, and digital information.",
+      "duration": "1 year",
+      "roadmap": [
+        {
+          "stage": "Introduction",
+          "topics": ["Version Control"],
+          "duration": "2 weeks",
+          "content": [
+            { "lesson": "Using Git & GitHub", "type": "tutorial" },
+            { "lesson": "Quiz: Version Control Basics", "type": "quiz" }
+          ]
+        },
+        {
+          "stage": "Core Concepts",
+          "topics": ["Networking"],
+          "duration": "4 weeks",
+          "content": [
+            { "lesson": "Computer Networks Explained", "type": "video" },
+            { "lesson": "OSI Model Deep Dive", "type": "article" }
+          ]
+        },
+        {
+          "stage": "Advanced",
+          "topics": ["Cybersecurity Tools"],
+          "duration": "6 weeks",
+          "content": [
+            { "lesson": "Using Wireshark", "type": "tutorial" },
+            { "lesson": "Introduction to Penetration Testing", "type": "video" }
+          ]
+        },
+        {
+          "stage": "Projects",
+          "topics": ["Security Audit"],
+          "duration": "1 month",
+          "content": [
+            { "lesson": "Perform a Security Audit on a Sample App", "type": "project" }
+          ]
+        }
+      ]
+    }
+  ]
+}
