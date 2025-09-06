@@ -11,9 +11,32 @@
           "topics": ["Basics of Computers", "How the Web Works"],
           "duration": "2 weeks",
           "content": [
-            { "lesson": "Introduction to Computers", "type": "video", "url": "https://example.com/intro-to-computers" },
-            { "lesson": "How the Internet Works", "type": "article", "url": "https://developer.mozilla.org/en-US/docs/Learn/Common_questions/How_does_the_Internet_work" },
-            { "lesson": "Quiz: Basics of Web", "type": "quiz" }
+            {
+              "lesson": "Introduction to Computers",
+              "type": "video",
+              "content": "This lesson introduces what a computer is, basic hardware components like CPU, memory, and storage, and how they work together with software."
+            },
+            {
+              "lesson": "How the Internet Works",
+              "type": "article",
+              "content": "The internet is a global network that connects millions of devices. You'll learn about IP addresses, DNS, data packets, and how browsers request and display web pages."
+            },
+            {
+              "lesson": "Quiz: Basics of Web",
+              "type": "quiz",
+              "questions": [
+                {
+                  "question": "What does HTTP stand for?",
+                  "options": ["HyperText Transfer Protocol", "High Transfer Text Protocol", "Hyper Terminal Transfer Process"],
+                  "answer": "HyperText Transfer Protocol"
+                },
+                {
+                  "question": "Which device connects a local network to the internet?",
+                  "options": ["Router", "Switch", "Printer"],
+                  "answer": "Router"
+                }
+              ]
+            }
           ]
         },
         {
@@ -21,9 +44,21 @@
           "topics": ["HTML & CSS"],
           "duration": "4 weeks",
           "content": [
-            { "lesson": "HTML Fundamentals", "type": "video", "url": "https://example.com/html-fundamentals" },
-            { "lesson": "CSS Styling Basics", "type": "video", "url": "https://example.com/css-styling" },
-            { "lesson": "Practical: Build a Personal Portfolio", "type": "project" }
+            {
+              "lesson": "HTML Fundamentals",
+              "type": "article",
+              "content": "HTML is the structure of web pages. You’ll learn about elements, attributes, headings, paragraphs, links, images, forms, and semantic tags."
+            },
+            {
+              "lesson": "CSS Styling Basics",
+              "type": "article",
+              "content": "CSS is used to style HTML. Topics include selectors, colors, fonts, margins, padding, and layout techniques like Flexbox and Grid."
+            },
+            {
+              "lesson": "Practical: Build a Personal Portfolio",
+              "type": "project",
+              "instructions": "Create a personal portfolio website with Home, About, and Contact pages. Use CSS for styling and ensure it is mobile responsive."
+            }
           ]
         },
         {
@@ -31,9 +66,21 @@
           "topics": ["JavaScript", "React"],
           "duration": "6 weeks",
           "content": [
-            { "lesson": "JavaScript Essentials", "type": "video", "url": "https://example.com/javascript-essentials" },
-            { "lesson": "React Basics", "type": "video", "url": "https://example.com/react-basics" },
-            { "lesson": "React Project: Todo App", "type": "project" }
+            {
+              "lesson": "JavaScript Essentials",
+              "type": "article",
+              "content": "JavaScript enables interactivity in web pages. Learn about variables, data types, operators, loops, functions, and DOM manipulation."
+            },
+            {
+              "lesson": "React Basics",
+              "type": "article",
+              "content": "React is a JavaScript library for building interfaces. You'll learn about components, props, state, and JSX syntax."
+            },
+            {
+              "lesson": "React Project: Todo App",
+              "type": "project",
+              "instructions": "Build a Todo app where users can add, mark complete, and delete tasks. Use React components and state."
+            }
           ]
         },
         {
@@ -41,8 +88,16 @@
           "topics": ["Portfolio Website"],
           "duration": "1 month",
           "content": [
-            { "lesson": "Capstone: Build Your Portfolio Website", "type": "project" },
-            { "lesson": "Deploying to Netlify", "type": "tutorial", "url": "https://example.com/deploy-to-netlify" }
+            {
+              "lesson": "Capstone: Build Your Portfolio Website",
+              "type": "project",
+              "instructions": "Combine HTML, CSS, and JavaScript to build a polished portfolio site with at least 3 projects showcased."
+            },
+            {
+              "lesson": "Deploying to Netlify",
+              "type": "tutorial",
+              "content": "Learn how to deploy your website using Netlify. Steps include connecting GitHub, setting build commands, and publishing."
+            }
           ]
         }
       ]
@@ -58,8 +113,27 @@
           "topics": ["Programming Fundamentals"],
           "duration": "1 week",
           "content": [
-            { "lesson": "Intro to Programming with Python", "type": "video", "url": "https://example.com/python-intro" },
-            { "lesson": "Quiz: Basic Python", "type": "quiz" }
+            {
+              "lesson": "Intro to Programming with Python",
+              "type": "video",
+              "content": "Learn the basics of Python: variables, loops, conditionals, and simple data structures like lists."
+            },
+            {
+              "lesson": "Quiz: Basic Python",
+              "type": "quiz",
+              "questions": [
+                {
+                  "question": "Which keyword is used to define a function in Python?",
+                  "options": ["function", "def", "fun"],
+                  "answer": "def"
+                },
+                {
+                  "question": "What is the output of: print(2 * 3)?",
+                  "options": ["23", "6", "2x3"],
+                  "answer": "6"
+                }
+              ]
+            }
           ]
         },
         {
@@ -67,8 +141,16 @@
           "topics": ["Python Basics", "Data Handling"],
           "duration": "4 weeks",
           "content": [
-            { "lesson": "Working with Lists & Dictionaries", "type": "article" },
-            { "lesson": "Using Pandas for Data Analysis", "type": "video", "url": "https://example.com/pandas-basics" }
+            {
+              "lesson": "Working with Lists & Dictionaries",
+              "type": "article",
+              "content": "Lists store ordered data; dictionaries store key-value pairs. Learn how to create, update, and loop through them."
+            },
+            {
+              "lesson": "Using Pandas for Data Analysis",
+              "type": "video",
+              "content": "Pandas is a Python library for working with structured data. Learn about DataFrames, filtering, and basic analysis."
+            }
           ]
         },
         {
@@ -76,8 +158,16 @@
           "topics": ["Machine Learning Models"],
           "duration": "6 weeks",
           "content": [
-            { "lesson": "Supervised vs Unsupervised Learning", "type": "video" },
-            { "lesson": "Build a Linear Regression Model", "type": "project" }
+            {
+              "lesson": "Supervised vs Unsupervised Learning",
+              "type": "article",
+              "content": "Supervised learning uses labeled data to train models. Unsupervised learning finds hidden patterns in unlabeled data."
+            },
+            {
+              "lesson": "Build a Linear Regression Model",
+              "type": "project",
+              "instructions": "Use scikit-learn to train a model that predicts housing prices based on features like size and location."
+            }
           ]
         },
         {
@@ -85,7 +175,11 @@
           "topics": ["Data Analysis Project"],
           "duration": "2 weeks",
           "content": [
-            { "lesson": "Capstone: Predict Housing Prices", "type": "project" }
+            {
+              "lesson": "Capstone: Predict Housing Prices",
+              "type": "project",
+              "instructions": "Clean and analyze a dataset, then build a regression model to predict housing prices. Present your findings."
+            }
           ]
         }
       ]
@@ -101,8 +195,22 @@
           "topics": ["Forces and Motion"],
           "duration": "2 weeks",
           "content": [
-            { "lesson": "Newton’s First Law", "type": "video" },
-            { "lesson": "Quiz: Basic Motion", "type": "quiz" }
+            {
+              "lesson": "Newton’s First Law",
+              "type": "video",
+              "content": "An object remains at rest, or in uniform motion, unless acted upon by a force. Learn real-world examples of inertia."
+            },
+            {
+              "lesson": "Quiz: Basic Motion",
+              "type": "quiz",
+              "questions": [
+                {
+                  "question": "What is the SI unit of force?",
+                  "options": ["Newton", "Joule", "Watt"],
+                  "answer": "Newton"
+                }
+              ]
+            }
           ]
         },
         {
@@ -110,8 +218,16 @@
           "topics": ["Newton’s Laws"],
           "duration": "2 weeks",
           "content": [
-            { "lesson": "Newton’s Second Law in Action", "type": "article" },
-            { "lesson": "Lab Simulation: Motion of Objects", "type": "simulation" }
+            {
+              "lesson": "Newton’s Second Law in Action",
+              "type": "article",
+              "content": "Force equals mass times acceleration (F = ma). This law explains how forces affect motion."
+            },
+            {
+              "lesson": "Lab Simulation: Motion of Objects",
+              "type": "simulation",
+              "content": "Interactive simulation showing how forces cause acceleration and motion."
+            }
           ]
         },
         {
@@ -119,8 +235,16 @@
           "topics": ["Quantum Physics"],
           "duration": "4 weeks",
           "content": [
-            { "lesson": "Introduction to Quantum Mechanics", "type": "video" },
-            { "lesson": "Double Slit Experiment", "type": "article" }
+            {
+              "lesson": "Introduction to Quantum Mechanics",
+              "type": "video",
+              "content": "Explore wave-particle duality, uncertainty principle, and quantum states."
+            },
+            {
+              "lesson": "Double Slit Experiment",
+              "type": "article",
+              "content": "Learn how light and particles behave like waves, producing interference patterns."
+            }
           ]
         },
         {
@@ -128,7 +252,11 @@
           "topics": ["Physics Simulation"],
           "duration": "1 month",
           "content": [
-            { "lesson": "Build a Physics Simulation with Python", "type": "project" }
+            {
+              "lesson": "Build a Physics Simulation with Python",
+              "type": "project",
+              "instructions": "Write a Python program that simulates motion using Newton’s laws."
+            }
           ]
         }
       ]
@@ -144,8 +272,22 @@
           "topics": ["Numbers and Arithmetic"],
           "duration": "1 week",
           "content": [
-            { "lesson": "Review: Algebra & Functions", "type": "article" },
-            { "lesson": "Quiz: Pre-Calculus Basics", "type": "quiz" }
+            {
+              "lesson": "Review: Algebra & Functions",
+              "type": "article",
+              "content": "Before starting calculus, review algebra concepts: functions, exponents, and equations."
+            },
+            {
+              "lesson": "Quiz: Pre-Calculus Basics",
+              "type": "quiz",
+              "questions": [
+                {
+                  "question": "What is the slope of y = 3x + 2?",
+                  "options": ["2", "3", "5"],
+                  "answer": "3"
+                }
+              ]
+            }
           ]
         },
         {
@@ -153,17 +295,33 @@
           "topics": ["Derivatives"],
           "duration": "4 weeks",
           "content": [
-            { "lesson": "Understanding Limits", "type": "video" },
-            { "lesson": "First Principles of Derivatives", "type": "article" }
+            {
+              "lesson": "Understanding Limits",
+              "type": "video",
+              "content": "Limits form the foundation of calculus. Learn how functions behave as inputs approach a value."
+            },
+            {
+              "lesson": "First Principles of Derivatives",
+              "type": "article",
+              "content": "Learn how to compute derivatives from first principles using limits."
+            }
           ]
         },
         {
           "stage": "Advanced",
-          "topics": ["Statistical Inference"],
+          "topics": ["Applications of Derivatives"],
           "duration": "4 weeks",
           "content": [
-            { "lesson": "Derivatives in Real Life Problems", "type": "video" },
-            { "lesson": "Optimization Exercises", "type": "project" }
+            {
+              "lesson": "Derivatives in Real Life Problems",
+              "type": "video",
+              "content": "See how derivatives are used in velocity, optimization, and growth/decay models."
+            },
+            {
+              "lesson": "Optimization Exercises",
+              "type": "project",
+              "instructions": "Solve real-world optimization problems, such as maximizing area or minimizing cost."
+            }
           ]
         },
         {
@@ -171,7 +329,11 @@
           "topics": ["Math Problem Sets"],
           "duration": "2 weeks",
           "content": [
-            { "lesson": "Capstone: Solve Applied Calculus Problems", "type": "project" }
+            {
+              "lesson": "Capstone: Solve Applied Calculus Problems",
+              "type": "project",
+              "instructions": "Work through a set of applied calculus problems and present your solutions."
+            }
           ]
         }
       ]
@@ -187,8 +349,22 @@
           "topics": ["Version Control"],
           "duration": "2 weeks",
           "content": [
-            { "lesson": "Using Git & GitHub", "type": "tutorial" },
-            { "lesson": "Quiz: Version Control Basics", "type": "quiz" }
+            {
+              "lesson": "Using Git & GitHub",
+              "type": "tutorial",
+              "content": "Learn version control basics: initializing a repository, committing changes, branching, and pushing to GitHub."
+            },
+            {
+              "lesson": "Quiz: Version Control Basics",
+              "type": "quiz",
+              "questions": [
+                {
+                  "question": "Which command is used to clone a repository?",
+                  "options": ["git init", "git clone", "git commit"],
+                  "answer": "git clone"
+                }
+              ]
+            }
           ]
         },
         {
@@ -196,8 +372,16 @@
           "topics": ["Networking"],
           "duration": "4 weeks",
           "content": [
-            { "lesson": "Computer Networks Explained", "type": "video" },
-            { "lesson": "OSI Model Deep Dive", "type": "article" }
+            {
+              "lesson": "Computer Networks Explained",
+              "type": "video",
+              "content": "Learn how devices connect through LANs, WANs, and the internet. Topics include IP, routers, and switches."
+            },
+            {
+              "lesson": "OSI Model Deep Dive",
+              "type": "article",
+              "content": "Understand the 7 layers of the OSI model and how data flows through each layer."
+            }
           ]
         },
         {
@@ -205,8 +389,16 @@
           "topics": ["Cybersecurity Tools"],
           "duration": "6 weeks",
           "content": [
-            { "lesson": "Using Wireshark", "type": "tutorial" },
-            { "lesson": "Introduction to Penetration Testing", "type": "video" }
+            {
+              "lesson": "Using Wireshark",
+              "type": "tutorial",
+              "content": "Wireshark is a network protocol analyzer. Learn how to capture and inspect packets."
+            },
+            {
+              "lesson": "Introduction to Penetration Testing",
+              "type": "video",
+              "content": "An introduction to ethical hacking, common vulnerabilities, and penetration testing methodology."
+            }
           ]
         },
         {
@@ -214,7 +406,11 @@
           "topics": ["Security Audit"],
           "duration": "1 month",
           "content": [
-            { "lesson": "Perform a Security Audit on a Sample App", "type": "project" }
+            {
+              "lesson": "Perform a Security Audit on a Sample App",
+              "type": "project",
+              "instructions": "Audit a sample application for vulnerabilities, document issues, and suggest fixes."
+            }
           ]
         }
       ]
