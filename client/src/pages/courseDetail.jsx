@@ -94,6 +94,7 @@ const CourseDetail = () => {
       <span className="small_background_text inline-block mb-8">
         Duration: {course.duration}
       </span>
+      <Link to={`/courses`} className='text-gray-700 ml-3 hover:underline hover:text-blue-700'>View Roadmap for this course</Link>
 
       <h2 className="text-2xl font-bold text-gray-800 mb-6">
         Course Roadmap
