@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react'
-import { useCourses } from '../context/CourseContext'
+import React, { useState } from "react"
+import { useCourses } from "../context/CourseContext"
+import { X } from "lucide-react" // 👈 make sure lucide-react is installed
 
 const Courses = () => {
   const [selectedCourse, setSelectedCourse] = useState(null)
-
   const { courses: courseList, loading } = useCourses()
 
   if (loading) {
@@ -19,6 +19,7 @@ const Courses = () => {
       {/* Course List Section */}
       <section className="bg-white shadow-md rounded-xl p-4">
         <h1 className="section_heading border-b pb-2">Quests</h1>
+
         <div className="space-y-3">
           {(courseList || []).map((course) => (
             <div
@@ -30,8 +31,41 @@ const Courses = () => {
               }`}
               onClick={() => setSelectedCourse(course)}
             >
-              <h2 className="medium_text">{course.title} <span className="text-3xl text-gray-400 mx-1">{"\u00B7"}</span><span className='small_background_text'>{course.duration}</span></h2>
-              <p className="in_container_medium_description">{course.description}</p>
+              {selectedCourse?.id === course.id ? (
+                <div className="">
+                  {/* Title Row with Close Button */}
+                  <h2 className="medium_text flex items-center justify-between">
+                    <span>
+                      {course.title}
+                    </span>
+
+                    {/* Close button */}
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation() // prevent reopening on click
+                        setSelectedCourse(null)
+                      }}
+                      className="ml-2 p-1 rounded-full hover:bg-gray-200 transition-colors"
+                      aria-label="Close"
+                    >
+                      <X className="w-5 h-5 text-gray-500 hover:text-gray-700" />
+                    </button>
+                  </h2>
+
+                  <p className="in_container_medium_description">
+                    {course.description}
+                  </p>
+                </div>
+              ) : (
+                <div>
+                  <h2 className="medium_text">
+                    {course.title}{" "}
+                  </h2>
+                  <p className="in_container_medium_description">
+                    {course.description}
+                  </p>
+                </div>
+              )}
             </div>
           ))}
         </div>
@@ -60,7 +94,9 @@ const Courses = () => {
 
                   {/* Step Content */}
                   <div>
-                    <h3 className="font-semibold text-gray-800">{step.stage}</h3>
+                    <h3 className="font-semibold text-gray-800">
+                      {step.stage}
+                    </h3>
                     <p className="text-gray-600 text-sm">
                       {step.topics.join(", ")}
                     </p>
@@ -81,5 +117,3 @@ const Courses = () => {
 }
 
 export default Courses
-
-
