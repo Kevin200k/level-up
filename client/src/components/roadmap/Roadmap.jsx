@@ -198,7 +198,7 @@ const Roadmap = () => {
   const firstContent = [
     "Introduction to Computer",
     "How the Internet works",
-    "Quit"
+    "Quiz"
   ];
 
   const secondContent = [
@@ -211,7 +211,7 @@ const Roadmap = () => {
     "Javascript Essentials",
     "React Basics",
     "React Project: Todo App"
-  ]
+  ];
 
   // Main topic nodes
   const topicNodes = topics.map((topic, index) => ({
@@ -221,68 +221,123 @@ const Roadmap = () => {
     type: "CustomNode",
   }));
 
-  // Content nodes (only attach to first main node)
+  // Content nodes
   const firstContentNodes = firstContent.map((content, index) => ({
     id: `c-${index + 1}`,
-    position: { x: 300 , y: index * 50 }, // stagger beside first node
+    position: { x: 300, y: index * 50 },
     data: { label: content },
     type: "NodeContents",
   }));
 
   const secondContentNodes = secondContent.map((content, index) => ({
     id: `d-${index + 1}`,
-    position: { x: 300, y: 200 + index * 50 }, // start from y=200 (topic 2 position)
-    data: { label: content },                  // ✅ each content string
-    type: "NodeContents"
+    position: { x: 300, y: 200 + index * 50 }, // align with topic 2
+    data: { label: content },
+    type: "NodeContents",
   }));
 
   const thirdContentNodes = thirdContent.map((content, index) => ({
     id: `e-${index + 1}`,
-    position: { x: 300, y: 400 + index * 50 },
+    position: { x: 300, y: 400 + index * 50 }, // align with topic 3
     data: { label: content },
-    type: "NodeContents"
-  }))
+    type: "NodeContents",
+  }));
 
   // Vertical edges between main nodes
   const topicEdges = topics.slice(1).map((_, index) => ({
     id: `t-edge-${index + 1}`,
     source: `t-${index + 1}`,
-    sourceHandle: "bottom",   // force edge from bottom of current node
+    sourceHandle: "bottom",
     target: `t-${index + 2}`,
-    targetHandle: "top",      // connect to top of next node
+    targetHandle: "top",
     type: "straight",
+    style: { strokeWidth: 2, stroke: "black" }
   }));
 
-  // Edges: only first topic → all contents
-  const contentEdges = firstContent.map((_, index) => ({
-    id: `tc-${index + 1}`,
-    source: "t-1",
-    sourceHandle: "r1",       // right handle of first node
-    target: `c-${index + 1}`,
-    targetHandle: "left",     // left side of content node
-    type: "default",
-  }));
+  // Edges: topic 1 → its contents
+  const contentEdges = firstContent.map((_, index) => {
+    const edges = [
+      {
+        id: `c-edge-${index + 1}`,
+        source: "t-1",
+        sourceHandle: "r1",
+        target: `c-${index + 1}`,
+        targetHandle: "left",
+        type: "default",
+        style: { strokeWidth: 1, stroke: "black", strokeDasharray: "5,5" }
+      },
+    ];
 
-  const secondContentEdges = secondContent.map((_, index) => ({
-    id: `tc-${index + 1}`,
-    source: "t-2",
-    sourceHandle: "r1",
-    target: `d-${index + 1}`,
-    targetHandle: "left",
-    type: "default"
-  }))
+    // Special: if it's the 3rd node, also connect to t-2
+    if (index === 2) {
+      edges.push({
+        id: `c-extra-edge-${index + 1}`,
+        source: `c-${index + 1}`,
+        sourceHandle: "bottom",
+        target: "t-2",
+        targetHandle: "top",
+        type: "bezier", // make it curved
+        style: { strokeWidth: 1.2, stroke: "black" }
+      });
+    }
+    
+    return edges;
+  }).flat();
+  
+  // Edges: topic 2 → its contents
+  const secondContentEdges = secondContent.map((_, index) => {
+    const edges = [
+      {
+        id: `d-edge-${index + 1}`,
+        source: "t-2",
+        sourceHandle: "r1",
+        target: `d-${index + 1}`,
+        targetHandle: "left",
+        type: "default",
+        style: { strokeWidth: 1, stroke: "black", strokeDasharray: "5,5" }
+      },
+    ];
 
-  const thirdContentEdges = secondContent.map((_, index) => ({
-    id: `tc-${index + 1}`,
+    // Special: if it's the 3rd node, also connect to t-3
+    if (index === 2) {
+      edges.push({
+        id: `d-extra-edge-${index + 1}`,
+        source: `d-${index + 1}`,
+        sourceHandle: "bottom",
+        target: "t-3",
+        targetHandle: "top",
+        type: "bezier",
+        style: { strokeWidth: 1.2, stroke: "black" }
+      });
+    }
+
+    return edges;
+  }).flat();
+
+  // Edges: topic 3 → its contents
+  const thirdContentEdges = thirdContent.map((_, index) => ({
+    id: `e-edge-${index + 1}`,
     source: "t-3",
     sourceHandle: "r1",
     target: `e-${index + 1}`,
     targetHandle: "left",
-    type: "default"
-  }))
+    type: "default",
+    style: { strokeWidth: 1, stroke: "black", strokeDasharray: "5,5"}
+  }));
 
-  const nodes = [...topicNodes, ...firstContentNodes, ...secondContentNodes, ...thirdContentNodes];
-  const edges = [...topicEdges, ...contentEdges, ...secondContentEdges, ...thirdContentEdges];
+  const nodes = [
+    ...topicNodes,
+    ...firstContentNodes,
+    ...secondContentNodes,
+    ...thirdContentNodes,
+  ];
+
+  const edges = [
+    ...topicEdges,
+    ...contentEdges,
+    ...secondContentEdges,
+    ...thirdContentEdges
+  ];
 
   const nodeTypes = { CustomNode, NodeContents };
 
