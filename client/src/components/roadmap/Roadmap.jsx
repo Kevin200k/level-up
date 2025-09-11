@@ -195,11 +195,23 @@ const Roadmap = () => {
     "Javascript React"
   ];
 
-  const firstNodeContents = [
+  const firstContent = [
     "Introduction to Computer",
     "How the Internet works",
     "Quit"
   ];
+
+  const secondContent = [
+    "HTML Fundamentals",
+    "Css Styling Basics",
+    "Practical: Build a Personal Portforlio"
+  ];
+
+  const thirdContent = [
+    "Javascript Essentials",
+    "React Basics",
+    "React Project: Todo App"
+  ]
 
   // Main topic nodes
   const topicNodes = topics.map((topic, index) => ({
@@ -210,12 +222,26 @@ const Roadmap = () => {
   }));
 
   // Content nodes (only attach to first main node)
-  const contentNodes = firstNodeContents.map((content, index) => ({
+  const firstContentNodes = firstContent.map((content, index) => ({
     id: `c-${index + 1}`,
-    position: { x: 300, y: index * 150 }, // stagger beside first node
+    position: { x: 300 , y: index * 50 }, // stagger beside first node
     data: { label: content },
     type: "NodeContents",
   }));
+
+  const secondContentNodes = secondContent.map((content, index) => ({
+    id: `d-${index + 1}`,
+    position: { x: 300, y: 200 + index * 50 }, // start from y=200 (topic 2 position)
+    data: { label: content },                  // ✅ each content string
+    type: "NodeContents"
+  }));
+
+  const thirdContentNodes = thirdContent.map((content, index) => ({
+    id: `e-${index + 1}`,
+    position: { x: 300, y: 400 + index * 50 },
+    data: { label: content },
+    type: "NodeContents"
+  }))
 
   // Vertical edges between main nodes
   const topicEdges = topics.slice(1).map((_, index) => ({
@@ -228,17 +254,35 @@ const Roadmap = () => {
   }));
 
   // Edges: only first topic → all contents
-  const contentEdges = firstNodeContents.map((_, index) => ({
+  const contentEdges = firstContent.map((_, index) => ({
     id: `tc-${index + 1}`,
     source: "t-1",
     sourceHandle: "r1",       // right handle of first node
     target: `c-${index + 1}`,
     targetHandle: "left",     // left side of content node
-    type: "straight",
+    type: "default",
   }));
 
-  const nodes = [...topicNodes, ...contentNodes];
-  const edges = [...topicEdges, ...contentEdges];
+  const secondContentEdges = secondContent.map((_, index) => ({
+    id: `tc-${index + 1}`,
+    source: "t-2",
+    sourceHandle: "r1",
+    target: `d-${index + 1}`,
+    targetHandle: "left",
+    type: "default"
+  }))
+
+  const thirdContentEdges = secondContent.map((_, index) => ({
+    id: `tc-${index + 1}`,
+    source: "t-3",
+    sourceHandle: "r1",
+    target: `e-${index + 1}`,
+    targetHandle: "left",
+    type: "default"
+  }))
+
+  const nodes = [...topicNodes, ...firstContentNodes, ...secondContentNodes, ...thirdContentNodes];
+  const edges = [...topicEdges, ...contentEdges, ...secondContentEdges, ...thirdContentEdges];
 
   const nodeTypes = { CustomNode, NodeContents };
 
