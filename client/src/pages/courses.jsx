@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { useCourses } from "../context/CourseContext"
 import { X } from "lucide-react" // 👈 make sure lucide-react is installed
+import Roadmap from "../components/roadmap/Roadmap"
 
 const Courses = () => {
   const [selectedCourse, setSelectedCourse] = useState(null)
@@ -73,44 +74,7 @@ const Courses = () => {
 
       {/* Roadmap Section */}
       <section className="bg-white shadow-md rounded-xl p-6 animate-all">
-        {selectedCourse ? (
-          <>
-            <h2 className="text-2xl font-bold mb-4">
-              {selectedCourse.title} Roadmap
-            </h2>
-            <div className="space-y-6">
-              {selectedCourse.roadmap.map((step, index) => (
-                <div
-                  key={index}
-                  className="grid grid-cols-[30px_1fr] gap-4 justify-items-start"
-                >
-                  {/* Dot + line */}
-                  <div className="flex flex-col items-center">
-                    <div className="w-5 h-5 rounded-full bg-blue-500 border-2 border-white shadow-md"></div>
-                    {index !== selectedCourse.roadmap.length - 1 && (
-                      <div className="w-[2px] flex-1 bg-gray-300"></div>
-                    )}
-                  </div>
-
-                  {/* Step Content */}
-                  <div>
-                    <h3 className="font-semibold text-gray-800">
-                      {step.stage}
-                    </h3>
-                    <p className="text-gray-600 text-sm">
-                      {step.topics.join(", ")}
-                    </p>
-                    <p className="text-xs text-gray-500">{step.duration}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </>
-        ) : (
-          <div className="flex items-center justify-center h-full text-gray-400 italic">
-            Select a course to view its roadmap
-          </div>
-        )}
+        <Roadmap />
       </section>
     </div>
   )

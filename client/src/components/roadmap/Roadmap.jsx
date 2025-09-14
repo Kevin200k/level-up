@@ -187,8 +187,12 @@ import ReactFlow from 'reactflow'
 import "reactflow/dist/style.css";
 import CustomNode from './CustomNode';
 import NodeContents from './NodeContents';
+import { useCourses } from '../../context/CourseContext';
 
 const Roadmap = () => {
+
+  const { courses: courseList } = useCourses()
+
   const topics = [
     "Basics Of Computer, How the Web Works",
     "HTML & CSS",
