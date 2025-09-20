@@ -18,6 +18,7 @@ const ProjectNode = ({ data, isConnectable }) => {
         position={ Position.Right }
         id="r"
         isConnectable={ isConnectable }
+        style={{ top: '50%', transform: 'translateY(-50%)', borderRadius: '50%', width: 10, height: 10, background: '#fff', border: '2px solid #22C55E' }}
       />
       <h2 className='text-center text-sm font-medium p-2'>{data.label}</h2>
     </div>
