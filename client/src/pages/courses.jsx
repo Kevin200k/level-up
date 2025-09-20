@@ -74,7 +74,7 @@ const Courses = () => {
 
       {/* Roadmap Section */}
       <section className="bg-white shadow-md rounded-xl p-6 animate-all">
-        {/* <Roadmap /> */}
+        <Roadmap />
       </section>
     </div>
   )
