@@ -1,4 +1,3 @@
-// src/components/MainTopicNode.jsx
 import React from 'react';
 import { Handle, Position } from 'reactflow';
 
@@ -21,16 +20,14 @@ const MainTopicNode = ({ data, isConnectable }) => {
 
       <h1 className='text-center font-bold text-lg p-2'>{data.label}</h1>
       
-      {/* Source handle for outgoing connections (to next main topic) */}
       <Handle
         type="source"
         position={Position.Bottom}
         id="b"
         isConnectable={isConnectable}
         style={{ top: '50%', transform: 'translateY(-50%)', borderRadius: '50%', width: 10, height: 10, background: '#fff', border: '2px solid #5B21B6' }}
-        // style={{ opacity: 0 }} // Hidden handle for cleaner look
       />
-      {/* Source handle for side content connections */}
+
       <Handle
         type="source"
         position={Position.Right}
