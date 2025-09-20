@@ -61,7 +61,7 @@ const Roadmap = () => {
   // title Node...
   const title = {
     id: "tn-1",
-    position: { x: -67, y: -150 },
+    position: { x: -70, y: -150 },
     data: { label: "Frontend Devlopment" },
     type: "TitleNode"
   }
@@ -92,7 +92,7 @@ const Roadmap = () => {
   // Firstlabel....
   const firstLabel = {
     id: "ln-1",
-    position: { x: -120, y: -70 },
+    position: { x: -120, y: -75 },
     data: { label: '1' },
     type: "LabelNode"
   }
@@ -100,7 +100,7 @@ const Roadmap = () => {
   // SecondLabel
   const secondLabel = {
     id: "ln-2",
-    position: { x: 700, y: 140  },
+    position: { x: 700, y: 135 },
     data: { label: '2' },
     type: "LabelNode"
   }
@@ -108,7 +108,7 @@ const Roadmap = () => {
   // ThirdLabel...
   const thirdLabel = {
     id: "ln-3",
-    position: { x: 700, y: 470 },
+    position: { x: 700, y: 465 },
     data: { label: '3' },
     type: "LabelNode"
   }
@@ -171,7 +171,9 @@ const Roadmap = () => {
     source: "tn-1",
     sourceHandle: "b",
     target: "sn-1",
-    targetHandle: "t"
+    targetHandle: "t",
+    type: "step",
+    style: { strokeWidth: 1, stroke: "black", strokeDasharray: "6,5" }
   }
 
   const secondCustomEdge = {
@@ -179,7 +181,9 @@ const Roadmap = () => {
     source: "sn-1",
     sourceHandle: "b",
     target: "t-1",
-    targetHandle: "t"
+    targetHandle: "t",
+    type: "step",
+    style: { strokeWidth: 1, stroke: "black", strokeDasharray: "6,5" }
   }
 
   const thirdCustomEdge = {
@@ -187,7 +191,9 @@ const Roadmap = () => {
     source: "sn-2",
     sourceHandle: "b",
     target: "t-2",
-    targetHandle: "t"
+    type: "step",
+    targetHandle: "t",
+    style: { strokeWidth: 1, stroke: "black", strokeDasharray: "6,5" }
   }
 
   const firstLabelEdge = {
@@ -195,7 +201,9 @@ const Roadmap = () => {
     source: "ln-1",
     sourceHandle: "r",
     target: "sn-1",
-    targetHandle: "l"
+    type: "step",
+    targetHandle: "l",
+    style: { strokeWidth: 1, stroke: "black", strokeDasharray: "6,5" }
   }
 
   const secondLabelEdge = {
@@ -203,7 +211,9 @@ const Roadmap = () => {
     source: "ln-2",
     sourceHandle: "l",
     target: "sn-2",
-    targetHandle: "r"
+    type: "step",
+    targetHandle: "r",
+    style: { strokeWidth: 1, stroke: "black", strokeDasharray: "6,5" }
   }
 
   const thirdLabelEdge = {
@@ -211,7 +221,9 @@ const Roadmap = () => {
     source: "ln-3",
     sourceHandle: "l",
     target: "sn-3",
-    targetHandle: "r"
+    type: "step",
+    targetHandle: "r",
+    style: { strokeWidth: 1, stroke: "black", strokeDasharray: "6,5" }
   }
 
   const nodes = [...mainNode, ...subTopicNode, ...secondSubTopicNode, ...thirdSubTopicNode, title, firstStage, secondStage, thirdStage, firstLabel, secondLabel, thirdLabel ]
