@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useCourses } from '../context/CourseContext'
 import { Link, useParams } from 'react-router-dom'
+import logo from '../assets/images/logo.png'
 import { Search } from 'lucide-react'
 
 const Nav = () => {
@@ -23,6 +24,12 @@ const Nav = () => {
 
   return (
     <div className='nav_parent'>
+
+      <div>
+        <img src={ logo } className='w-28' />
+      </div>
+
+      {/* input */}
       <div className="relative z-50">
         <input
           type='text'
@@ -57,6 +64,10 @@ const Nav = () => {
             )}
           </div>
         )}
+      </div>
+
+      <div>
+        something else
       </div>
 
       {showResults && (

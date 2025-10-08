@@ -4,7 +4,7 @@ import "reactflow/dist/style.css"
 import MainTopicNode from "./MainTopicNode"
 import SubtopicNode from "./SubtopicNode"
 import ProjectNode from "./ProjectNode"
-import QuizNode from "./QuizNode"   // ✅ fixed import
+import QuizNode from "./QuizNode"   // fixed import
 import TitleNode from "./TitleNode"
 import StageNode from "./StageNode"
 import LabelNode from "./LabelNode"

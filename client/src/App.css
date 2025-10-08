@@ -3,7 +3,7 @@
 
 /* -----Nav section------ */
 .nav_parent{
-  @apply w-full flex justify-center items-center p-4;
+  @apply w-full flex justify-between items-center p-4;
 }
 
 .search_bar{
