@@ -12,6 +12,9 @@ dist
 dist-ssr
 *.local
 
+# Dammy's Local
+mockups
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

@@ -7,13 +7,15 @@ import {
 } from 'react-router-dom'
 import MainLayout from './layouts/MainLayout'
 import Courses from './pages/courses'
+import CourseMainPage from './pages/CourseMainPage'
 import CourseDetail from './pages/courseDetail'
 import Roadmap from './components/roadmap/Roadmap'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<MainLayout />}>
-      <Route path='courses' element={<Courses />} />
+      <Route path='/courses?' element={<CourseMainPage />} />
+      <Route path='course' element={<Courses />} />
       <Route path='courses/:id' element={<CourseDetail />} />
       <Route path='/roadmap' element={<Roadmap />} />
     </Route>

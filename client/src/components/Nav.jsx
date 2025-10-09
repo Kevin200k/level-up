@@ -30,10 +30,10 @@ const Nav = () => {
       </div>
 
       {/* input */}
-      <div className="relative z-50">
+      <div className="relative z-50 middle_section">
         <input
           type='text'
-          placeholder='Search For Courses'
+          placeholder='Search Anything'
           className='search_bar'
           onChange={handleSearchChange}
         />
@@ -66,8 +66,18 @@ const Nav = () => {
         )}
       </div>
 
-      <div>
-        something else
+      <div className='end_section '>
+        <div className='auth_section'>
+          <div className='rounded-3xl border-2 border-blue-500 pl-6 pr-6 pt-3 pb-3 text-black'>
+            Login
+          </div>
+        </div>
+
+        <div className='auth_section'>
+          <div className='bg-blue-500 rounded-3xl pl-6 pr-6 pt-3 pb-3 text-gray-100'>
+            Signup
+          </div>
+        </div>
       </div>
 
       {showResults && (

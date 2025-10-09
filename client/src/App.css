@@ -3,11 +3,23 @@
 
 /* -----Nav section------ */
 .nav_parent{
-  @apply w-full flex justify-between items-center p-4;
+  @apply w-full grid grid-cols-[1fr_2fr_1fr] p-4 shadow-xs;
+}
+
+.middle_section{
+  @apply flex justify-center items-center
+}
+
+.end_section{
+  @apply flex justify-end gap-2
+}
+
+.auth_section{
+  @apply flex justify-center items-center text-[15px]
 }
 
 .search_bar{
-  @apply w-72 h-10 rounded-md border-2 p-2 text-gray-500
+  @apply w-72 h-10 rounded-md border-2 p-2 text-gray-500 text-[15px]
 }
 /* ---------------------- */
 
@@ -55,3 +67,9 @@
     @apply animate-spin rounded-full h-12 w-12 border-4 border-blue-500 border-t-transparent
   }
   /* ------------------------------- */
+
+  /* ================ Page Container ==================== */
+
+  .page_parent{
+    @apply p-4
+  }
