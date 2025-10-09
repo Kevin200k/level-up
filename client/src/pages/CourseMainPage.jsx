@@ -1,10 +1,13 @@
+// CourseMainPage.jsx
 import React from 'react'
+import CourseIntro from '../components/CourseIntro'
+import SelectCourses from '../components/SelectCourses'
 
 const CourseMainPage = () => {
   return (
-    <div className='page_parent'>
-      <h1 className='section_heading'>Good Morning, Damilola👋🏽</h1>
-      <h2 className="">Select a Course to get Started</h2>
+    <div className="min-h-screen bg-gray-50 p-6 sm:p-10">
+      <CourseIntro />
+      <SelectCourses />
     </div>
   )
 }
