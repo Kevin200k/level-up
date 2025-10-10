@@ -3,6 +3,7 @@
     {
       "id": 0,
       "title": "Frontend Development",
+      "type": "Technology and Computing",
       "description": "Learn how to build modern, responsive websites and web apps from scratch.",
       "duration": "6 months",
       "roadmap": [
@@ -107,6 +108,7 @@
     {
       "id": 1,
       "title": "Data Science",
+      "type": "Data and Analytics",
       "description": "Master the skills to analyze data, build models, and derive insights.",
       "duration": "9 months",
       "roadmap": [
@@ -193,6 +195,7 @@
     {
       "id": 2,
       "title": "Physics Fundamentals",
+      "type": "Science",
       "description": "Explore the principles of classical and modern physics.",
       "duration": "3 months",
       "roadmap": [
@@ -274,6 +277,7 @@
     {
       "id": 3,
       "title": "Calculus I",
+      "type": "Mathematics",
       "description": "Develop a strong foundation in calculus concepts and applications.",
       "duration": "6 months",
       "roadmap": [
@@ -355,6 +359,7 @@
     {
       "id": 4,
       "title": "Cybersecurity Basics",
+      "type": "Technology and Computing",
       "description": "Learn to secure networks, applications, and digital information.",
       "duration": "1 year",
       "roadmap": [
