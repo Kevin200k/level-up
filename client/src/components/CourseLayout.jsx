@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { ArrowRight, Laptop, Database, Sigma, FlaskConical } from 'lucide-react'
 
@@ -57,15 +58,17 @@ const CourseLayout = () => {
         <h1 className="text-3xl md:text-5xl font-extrabold text-gray-800 mb-4 tracking-tight">
           Select a Course to Get Started
         </h1>
-        <p className="text-gray-600 text-lg mb-3">or</p>
-        <motion.button
-          whileHover={{ x: 5 }}
-          transition={{ type: 'spring', stiffness: 200, damping: 15 }}
-          className="text-green-600 font-semibold hover:underline flex items-center gap-2 mx-auto text-lg"
-        >
-          Explore Courses with Built-in Roadmaps
-          <ArrowRight size={18} />
-        </motion.button>
+        {/* <p className="text-gray-600 text-lg mb-3">or</p> */}
+        <Link to='/course'>
+          <motion.button
+            whileHover={{ x: 5 }}
+            transition={{ type: 'spring', stiffness: 200, damping: 15 }}
+            className="text-green-600 font-semibold hover:underline flex items-center gap-2 mx-auto text-lg"
+          >
+            Explore Courses with Built-in Roadmaps
+            <ArrowRight size={18} />
+          </motion.button>
+        </Link>
       </motion.div>
 
       {/* Course Grid */}
