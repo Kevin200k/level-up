@@ -10,7 +10,7 @@ body {
 
 /* -----Nav section------ */
 .nav_parent{
-  @apply w-full grid grid-cols-[1fr_2fr_1fr] p-4 shadow-xs;
+  @apply w-full grid grid-cols-[1fr_2fr_1fr] p-4 shadow-xl;
 }
 
 .middle_section{

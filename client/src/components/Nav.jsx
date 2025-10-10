@@ -23,7 +23,7 @@ const Nav = () => {
   };
 
   return (
-    <div className='nav_parent'>
+    <div className='nav_parent sticky top-0 bg-white z-20'>
 
       <div>
         <img src={ logo } className='w-28' />
