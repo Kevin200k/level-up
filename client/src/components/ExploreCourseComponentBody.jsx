@@ -1,4 +1,6 @@
+// ExploreCourseComponentBody.jsx
 import React, { useEffect, useState } from 'react'
+import { motion } from 'framer-motion'
 import image from '../assets/images/T&C.png'
 import { useLocation, Link } from 'react-router-dom'
 
@@ -6,61 +8,88 @@ const ExploreCourseBody = ({ courseList }) => {
   const location = useLocation()
   const queryParams = new URLSearchParams(location.search)
   const initialCategory = queryParams.get('category')
-
   const [activeCategory, setActiveCategory] = useState(initialCategory)
 
-  useEffect(() => {
-    console.log(courseList)
-  }, [courseList])
-
-  // Extract unique categories
-  const uniqueCategories = [...new Set(courseList.map(course => course.type))]
-
-  // Filter courses based on active category
+  const uniqueCategories = [...new Set(courseList.map((course) => course.type))]
   const filteredCourses = activeCategory
-    ? courseList.filter(course => course.type === activeCategory)
+    ? courseList.filter((course) => course.type === activeCategory)
     : []
+
+  const containerVariants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  }
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 40 },
+    visible: { opacity: 1, y: 0 },
+  }
 
   return (
     <section className="flex flex-grow w-full min-h-screen bg-gray-50">
       {/* Left Sidebar */}
-      <aside className="w-[20rem] bg-white border-r border-gray-200 p-6 shadow-sm">
+      <motion.aside
+        className="w-[20rem] bg-white border-r border-gray-200 p-6 shadow-sm"
+        initial={{ x: -80, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ duration: 0.6, ease: 'easeOut' }}
+      >
         <h2 className="text-2xl font-bold text-green-700 mb-6 tracking-wide">
           Categories
         </h2>
 
         <div className="space-y-2">
           {uniqueCategories.map((category, index) => (
-            <div
+            <motion.div
               key={index}
               onClick={() => setActiveCategory(category)}
-              className={`p-3 rounded-lg font-medium cursor-pointer transition-all duration-300
-                ${
-                  activeCategory === category
-                    ? 'bg-green-600 text-white shadow-md scale-[1.02]'
-                    : 'text-gray-700 hover:bg-green-50 hover:text-green-700'
-                }`}
+              whileHover={{ scale: 1.05 }}
+              className={`p-3 rounded-lg font-medium cursor-pointer transition-all duration-300 ${
+                activeCategory === category
+                  ? 'bg-green-600 text-white shadow-md scale-[1.02]'
+                  : 'text-gray-700 hover:bg-green-50 hover:text-green-700'
+              }`}
             >
               {category}
-            </div>
+            </motion.div>
           ))}
         </div>
-      </aside>
+      </motion.aside>
 
       {/* Right Content Area */}
       <main className="flex-1 p-8">
-        <div className="bg-white rounded-2xl shadow-md p-8 border border-gray-100">
+        <motion.div
+          className="bg-white rounded-2xl shadow-md p-8 border border-gray-100"
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.4 }}
+        >
           {activeCategory ? (
             <>
-              <h2 className="text-3xl font-bold text-green-700 mb-8 capitalize">
+              <motion.h2
+                className="text-3xl font-bold text-green-700 mb-8 capitalize"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+              >
                 {activeCategory} Courses
-              </h2>
+              </motion.h2>
 
               {filteredCourses.length > 0 ? (
-                <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+                <motion.div
+                  className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+                  variants={containerVariants}
+                  initial="hidden"
+                  animate="visible"
+                >
                   {filteredCourses.map((course) => (
-                    <div
+                    <motion.div
                       key={course.id}
+                      variants={cardVariants}
+                      whileHover={{ scale: 1.03 }}
                       className="bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden"
                     >
                       {/* Course Image */}
@@ -74,44 +103,39 @@ const ExploreCourseBody = ({ courseList }) => {
 
                       {/* Course Info */}
                       <div className="p-5 space-y-4">
-                        <Link to={`/courses/${course.id}`} className="font-semibold text-gray-800 text-lg leading-snug line-clamp-1">
-                          <h3 >
-                            {course.title}
-                          </h3>
+                        <Link
+                          to={`/courses/${course.id}`}
+                          className="font-semibold text-gray-800 text-lg leading-snug line-clamp-1"
+                        >
+                          <h3>{course.title}</h3>
                         </Link>
-                        <Link to='/course' className="text-sm text-green-600 hover:text-green-700 hover:underline transition">
+                        <Link
+                          to="/course"
+                          className="text-sm text-green-600 hover:text-green-700 hover:underline transition"
+                        >
                           View Roadmap
                         </Link>
 
                         <p className="text-gray-600 text-sm line-clamp-3">
                           {course.description}
                         </p>
-
-                        {/* Progress Bar */}
-                        {/* <div>
-                          <p className="text-sm text-gray-500 mb-1">Progress</p>
-                          <div className="w-full bg-gray-200 h-2.5 rounded-full overflow-hidden">
-                            <div
-                              className="h-full bg-green-500 rounded-full"
-                              style={{ width: '70%' }}
-                            ></div>
-                          </div>
-                        </div> */}
-
-                        {/* <p className="text-gray-500 text-[13px] content-end">70%</p> */}
                       </div>
-                    </div>
+                    </motion.div>
                   ))}
-                </div>
+                </motion.div>
               ) : (
                 <p className="text-gray-500 italic">
                   No courses in this category yet.
                 </p>
               )}
-
             </>
           ) : (
-            <div className="flex flex-col items-center justify-center text-center py-20 text-gray-600">
+            <motion.div
+              className="flex flex-col items-center justify-center text-center py-20 text-gray-600"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+            >
               <h2 className="text-3xl font-bold text-green-700 mb-4">
                 Explore Courses
               </h2>
@@ -119,9 +143,9 @@ const ExploreCourseBody = ({ courseList }) => {
                 Select a course category from the left panel to explore available
                 courses, view their details, and track your learning progress.
               </p>
-            </div>
+            </motion.div>
           )}
-        </div>
+        </motion.div>
       </main>
     </section>
   )
