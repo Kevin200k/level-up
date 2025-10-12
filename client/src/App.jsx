@@ -9,6 +9,7 @@ import MainLayout from './layouts/MainLayout'
 import Courses from './pages/courses'
 import CourseMainPage from './pages/CourseMainPage'
 import Homepage from './pages/Homepage'
+import ExploreCourses from './pages/ExploreCourses'
 import CourseDetail from './pages/courseDetail'
 import Roadmap from './components/roadmap/Roadmap'
 
@@ -17,6 +18,7 @@ const router = createBrowserRouter(
     <Route path='/' element={<MainLayout />}>
       <Route path='/homepage' element={<Homepage />} />
       <Route path='/courses?' element={<CourseMainPage />} />
+      <Route path='/explorecourses?' element={<ExploreCourses />} />
       <Route path='course' element={<Courses />} />
       <Route path='courses/:id' element={<CourseDetail />} />
       <Route path='/roadmap' element={<Roadmap />} />

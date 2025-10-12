@@ -1,11 +1,15 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { useCourses } from "../context/CourseContext"
-import { X } from "lucide-react" // 👈 make sure lucide-react is installed
+import { X } from "lucide-react"
 import Roadmap from "../components/roadmap/Roadmap"
 
 const Courses = () => {
   const [selectedCourse, setSelectedCourse] = useState(null)
   const { courses: courseList, loading } = useCourses()
+
+  useEffect(() => {
+    console.log(courseList)
+  }, [courseList])
 
   if (loading) {
     return (
