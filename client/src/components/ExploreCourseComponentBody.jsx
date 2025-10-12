@@ -1,8 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import image from '../assets/images/T&C.png'
+import { useLocation, Link } from 'react-router-dom'
 
 const ExploreCourseBody = ({ courseList }) => {
-  const [activeCategory, setActiveCategory] = useState("Technology and Computing")
+  const location = useLocation()
+  const queryParams = new URLSearchParams(location.search)
+  const initialCategory = queryParams.get('category')
+
+  const [activeCategory, setActiveCategory] = useState(initialCategory)
 
   useEffect(() => {
     console.log(courseList)
@@ -69,19 +74,21 @@ const ExploreCourseBody = ({ courseList }) => {
 
                       {/* Course Info */}
                       <div className="p-5 space-y-4">
-                        <h3 className="font-semibold text-gray-800 text-lg leading-snug line-clamp-1">
-                          {course.title}
-                        </h3>
-                        <button className="text-sm text-green-600 hover:text-green-700 hover:underline transition">
+                        <Link to={`/courses/${course.id}`} className="font-semibold text-gray-800 text-lg leading-snug line-clamp-1">
+                          <h3 >
+                            {course.title}
+                          </h3>
+                        </Link>
+                        <Link to='/course' className="text-sm text-green-600 hover:text-green-700 hover:underline transition">
                           View Roadmap
-                        </button>
+                        </Link>
 
                         <p className="text-gray-600 text-sm line-clamp-3">
                           {course.description}
                         </p>
 
                         {/* Progress Bar */}
-                        <div>
+                        {/* <div>
                           <p className="text-sm text-gray-500 mb-1">Progress</p>
                           <div className="w-full bg-gray-200 h-2.5 rounded-full overflow-hidden">
                             <div
@@ -89,11 +96,9 @@ const ExploreCourseBody = ({ courseList }) => {
                               style={{ width: '70%' }}
                             ></div>
                           </div>
-                        </div>
+                        </div> */}
 
-                        <p className='text-gray-500 text-[13px] content-end'>
-                          70%
-                        </p>
+                        {/* <p className="text-gray-500 text-[13px] content-end">70%</p> */}
                       </div>
                     </div>
                   ))}
@@ -103,6 +108,7 @@ const ExploreCourseBody = ({ courseList }) => {
                   No courses in this category yet.
                 </p>
               )}
+
             </>
           ) : (
             <div className="flex flex-col items-center justify-center text-center py-20 text-gray-600">
