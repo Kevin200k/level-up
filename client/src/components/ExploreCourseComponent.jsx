@@ -1,4 +1,3 @@
-// ExploreCourseComponent.jsx
 import React from 'react'
 import { motion } from 'framer-motion'
 import trophy from '../assets/images/trophy.png'

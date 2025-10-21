@@ -1,19 +1,41 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import ReactFlow from "reactflow"
 import "reactflow/dist/style.css"
 import MainTopicNode from "./MainTopicNode"
 import SubtopicNode from "./SubtopicNode"
 import ProjectNode from "./ProjectNode"
-import QuizNode from "./QuizNode"   // fixed import
+import QuizNode from "./QuizNode"
 import TitleNode from "./TitleNode"
 import StageNode from "./StageNode"
 import LabelNode from "./LabelNode"
+import { useCourses } from '../../context/CourseContext'
+
+const topics = [ "Node 1", "Node 2", "Node 3" ]
+const subTopics = [ "subNode 1", "subNode 2", "subNode 3" ]
+const secondSubTopic = [ "subNode 11", "subNode 22", "subNode 33" ]
+const thirdSubTopic = [ "subNode 21", "subNode 22", "subNode 23" ]
+
+const nodeTypes = { MainTopicNode, SubtopicNode, QuizNode, ProjectNode, TitleNode, StageNode, LabelNode }
+
 
 const Roadmap = () => {
-  const topics = [ "Node 1", "Node 2", "Node 3" ]
-  const subTopics = [ "subNode 1", "subNode 2", "subNode 3" ]
-  const secondSubTopic = [ "subNode 11", "subNode 22", "subNode 33" ]
-  const thirdSubTopic = [ "subNode 21", "subNode 22", "subNode 23" ]
+
+  const { courses: courseList } = useCourses()
+
+  const roadmapData = courseList[0]?.roadmap || []
+
+  // Transform roadmapData → array of { stage, topics[] }
+  const formattedRoadmap = roadmapData.map(stage => ({
+    stage: stage.topic,          // main stage title
+    topics: stage.subtopics?.map(sub => sub.title) || []   // nested topics array
+  }))
+
+  useEffect(() => {
+    console.log("Formatted Roadmap:", formattedRoadmap)
+  }, [roadmapData])
+
+
+
 
   // MainTopicNode
   const mainNode = topics.map((topic, index) => ({
@@ -229,8 +251,6 @@ const Roadmap = () => {
   const nodes = [...mainNode, ...subTopicNode, ...secondSubTopicNode, ...thirdSubTopicNode, title, firstStage, secondStage, thirdStage, firstLabel, secondLabel, thirdLabel ]
 
   const edges = [mainTopicEdge, ...secondTopicEdges, ...firstSubTopicEdge, ...secondSubTopicEdge, ...thirdSubTopicEdge, firstCustomEdge, secondCustomEdge, thirdCustomEdge, firstLabelEdge, secondLabelEdge, thirdLabelEdge]
-
-  const nodeTypes = { MainTopicNode, SubtopicNode, QuizNode, ProjectNode, TitleNode, StageNode, LabelNode }
 
   return (
     <div style={{ width: "100%", height: "100vh" }}>
