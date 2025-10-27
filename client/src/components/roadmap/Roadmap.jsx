@@ -10,7 +10,7 @@ import StageNode from "./StageNode"
 import LabelNode from "./LabelNode"
 import { useCourses } from '../../context/CourseContext'
 
-const topics = [ "Node 1", "Node 2", "Node 3" ]
+// const topics = [ "Node 1", "Node 2", "Node 3" ]
 const subTopics = [ "subNode 1", "subNode 2", "subNode 3" ]
 const secondSubTopic = [ "subNode 11", "subNode 22", "subNode 33" ]
 const thirdSubTopic = [ "subNode 21", "subNode 22", "subNode 23" ]
@@ -22,17 +22,14 @@ const Roadmap = () => {
 
   const { courses: courseList } = useCourses()
 
-  const roadmapData = courseList[0]?.roadmap || []
+  const topics = courseList[0]?.roadmap?.map(stage => stage.topics || []) || []
 
-  // Transform roadmapData → array of { stage, topics[] }
-  const formattedRoadmap = roadmapData.map(stage => ({
-    stage: stage.topic,          // main stage title
-    topics: stage.subtopics?.map(sub => sub.title) || []   // nested topics array
-  }))
-
-  useEffect(() => {
-    console.log("Formatted Roadmap:", formattedRoadmap)
-  }, [roadmapData])
+  // useEffect(() => {
+  //   console.log("MainTopic:", mainTopic)
+  //   console.log("secondMainTopic:", secondTopic)
+  //   console.log("thirdMainTopic", thirdTopic)
+  //   console.log("Mapped:", mainTopicMap)
+  // }, [courseList])
 
 
 
@@ -53,7 +50,7 @@ const Roadmap = () => {
   // First SubtopicNode
   const subTopicNode = subTopics.map((topic, index) => ({
     id: `st-${index + 1}`,
-    position: { x: 300, y: -50 + index * 60 },
+    position: { x: 450, y: -180 + index * 90 },
     data: { label: topic },
     type: index === 2 
       ? "QuizNode" 
@@ -63,7 +60,7 @@ const Roadmap = () => {
   // Second SubTopicNode...
   const secondSubTopicNode = secondSubTopic.map((topic, index) => ({
     id: `tt-${ index + 1 }`,
-    position: { x: 200, y: 260 + index * 60  },
+    position: { x: 40, y: 300 + index * 90  },
     data: { label: topic },
     type: index === 2
       ? "ProjectNode"
@@ -73,7 +70,7 @@ const Roadmap = () => {
   //Third SubTopicNode...
   const thirdSubTopicNode = thirdSubTopic.map((topic, index) => ({
     id: `ft-${ index + 1 }`,
-    position: { x: 100, y: 480 + index * 60 },
+    position: { x: 800, y: 530 + index * 90 },
     data: { label: topic },
     type: index === 2
       ? "ProjectNode"
@@ -180,13 +177,14 @@ const Roadmap = () => {
 
   const thirdSubTopicEdge = thirdSubTopic.map((_, index) => ({
     id: `ft-e-${index + 1}`,
-    source: `ft-${ index + 1 }`,
-    sourceHandle: "r",
-    target: "t-3",
-    targetHandle: "l",
+    source: "t-3",
+    sourceHandle: "c",
+    target: `ft-${index + 1}`,
+    targetHandle: "a",
     type: "default",
     style: { strokeWidth: 1.5, stroke: "black", strokeDasharray: "6,5" }
-  }))
+  }));
+
 
   const firstCustomEdge = {
     id: "tn-s1",
