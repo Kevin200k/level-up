@@ -10,10 +10,6 @@ import StageNode from "./StageNode"
 import LabelNode from "./LabelNode"
 import { useCourses } from '../../context/CourseContext'
 
-// const topics = [ "Node 1", "Node 2", "Node 3" ]
-const subTopics = [ "subNode 1", "subNode 2", "subNode 3" ]
-const secondSubTopic = [ "subNode 11", "subNode 22", "subNode 33" ]
-const thirdSubTopic = [ "subNode 21", "subNode 22", "subNode 23" ]
 
 const nodeTypes = { MainTopicNode, SubtopicNode, QuizNode, ProjectNode, TitleNode, StageNode, LabelNode }
 
@@ -24,16 +20,12 @@ const Roadmap = () => {
 
   const topics = courseList[0]?.roadmap?.map(stage => stage.topics || []) || []
 
-  // useEffect(() => {
-  //   console.log("MainTopic:", mainTopic)
-  //   console.log("secondMainTopic:", secondTopic)
-  //   console.log("thirdMainTopic", thirdTopic)
-  //   console.log("Mapped:", mainTopicMap)
-  // }, [courseList])
+  const subTopics = courseList[0]?.roadmap[0]?.content?.map( content => content.lesson || []) || []
 
+  const secondSubTopic = courseList[0]?.roadmap[1]?.content?.map( content => content.lesson || [] ) || []
 
-
-
+  const thirdSubTopic = courseList[0]?.roadmap[2]?.content?.map( content => content.lesson || [] ) || []
+  
   // MainTopicNode
   const mainNode = topics.map((topic, index) => ({
     id: `t-${index + 1}`,
@@ -80,38 +72,38 @@ const Roadmap = () => {
   // title Node...
   const title = {
     id: "tn-1",
-    position: { x: -70, y: -150 },
-    data: { label: "Frontend Devlopment" },
+    position: { x: -70, y: -280 },
+    data: { label: courseList[0]?.title || [] },
     type: "TitleNode"
   }
 
   // First Stage Node...
   const firstStage = {
     id: "sn-1",
-    position: { x: 27, y: -70 },
-    data: { label: "Introduction" },
+    position: { x: 27, y: -90 },
+    data: { label: courseList[0]?.roadmap[0]?.stage || [] },
     type: "StageNode"
   }
 
   // Second Stage Node...
   const secondStage = {
     id: "sn-2",
-    position: { x: 445, y: 140 },
-    data: { label: "Concept" },
+    position: { x: 445, y: 120 },
+    data: { label: courseList[0]?.roadmap[1]?.stage || [] },
     type: "StageNode"
   }
 
   const thirdStage = {
     id: "sn-3",
-    position: { x: 440, y: 470 },
-    data: { label: "Advanced" },
+    position: { x: 500, y: 470 },
+    data: { label: courseList[0]?.roadmap[2]?.stage || [] },
     type: "StageNode"
   }
 
   // Firstlabel....
   const firstLabel = {
     id: "ln-1",
-    position: { x: -120, y: -75 },
+    position: { x: -200, y: -75 },
     data: { label: '1' },
     type: "LabelNode"
   }
@@ -119,7 +111,7 @@ const Roadmap = () => {
   // SecondLabel
   const secondLabel = {
     id: "ln-2",
-    position: { x: 700, y: 135 },
+    position: { x: 900, y: 135 },
     data: { label: '2' },
     type: "LabelNode"
   }
@@ -127,7 +119,7 @@ const Roadmap = () => {
   // ThirdLabel...
   const thirdLabel = {
     id: "ln-3",
-    position: { x: 700, y: 465 },
+    position: { x: 900, y: 465 },
     data: { label: '3' },
     type: "LabelNode"
   }

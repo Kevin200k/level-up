@@ -3,7 +3,7 @@ import { Handle, Position } from 'reactflow';
 
 const MainTopicNode = ({ data, isConnectable }) => {
   return (
-    <div className='w-80 h-32 bg-purple-700 text-white shadow-lg flex items-center justify-center border-2 border-black '>
+    <div className='w-80 h-32 bg-purple-700 text-white shadow-lg flex items-center justify-center border-4 border-black '>
       <Handle
         type="target"
         position={Position.Top}

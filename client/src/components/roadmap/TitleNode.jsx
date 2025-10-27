@@ -10,7 +10,7 @@ const TitleNode = ({ data }) => {
       style={{ opacity: 0 }}
       />
 
-      <h1 className='text-3xl'>{ data.label }</h1>
+      <h1 className='text-5xl'>{ data.label }</h1>
 
       <Handle 
       type='source' 

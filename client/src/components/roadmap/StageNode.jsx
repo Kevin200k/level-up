@@ -24,7 +24,7 @@ const StageNode = ({ data }) => {
       style={{ opacity: 0 }} />
 
       <div className="flex items-center gap-2">
-        <span className="text-lg font-semibold">{data.label}</span>
+        <span className="text-2xl font-semibold">{data.label}</span>
       </div>
 
       
