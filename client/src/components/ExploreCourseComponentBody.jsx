@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import image from '../assets/images/T&C.png'
-import { useLocation, Link } from 'react-router-dom'
+import { useLocation, Link, useParams } from 'react-router-dom'
 
 const ExploreCourseBody = ({ courseList }) => {
   const location = useLocation()
+  const { roadmapId } = useParams()
   const queryParams = new URLSearchParams(location.search)
   const initialCategory = queryParams.get('category')
   const [activeCategory, setActiveCategory] = useState(initialCategory)
@@ -60,9 +61,9 @@ const ExploreCourseBody = ({ courseList }) => {
       </motion.aside>
 
       {/* Right Content Area */}
-      <main className="flex-1 p-8">
+      <main className="flex-1">
         <motion.div
-          className="bg-white rounded-2xl shadow-md p-8 border border-gray-100"
+          className="  p-8"
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.4 }}
@@ -109,7 +110,7 @@ const ExploreCourseBody = ({ courseList }) => {
                           <h3>{course.title}</h3>
                         </Link>
                         <Link
-                          to="/course"
+                          to={`roadmap/${course.id}`}
                           className="text-sm text-green-600 hover:text-green-700 hover:underline transition"
                         >
                           View Roadmap

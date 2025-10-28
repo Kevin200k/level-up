@@ -14,17 +14,35 @@ import { useCourses } from '../../context/CourseContext'
 const nodeTypes = { MainTopicNode, SubtopicNode, QuizNode, ProjectNode, TitleNode, StageNode, LabelNode }
 
 
-const Roadmap = () => {
+const Roadmap = ({ courseId }) => {
 
-  const { courses: courseList } = useCourses()
+  const { courses: courseList, loading } = useCourses()
 
-  const topics = courseList[0]?.roadmap?.map(stage => stage.topics || []) || []
+  useEffect(() => {
+    console.log(courseId)
+  }, [courseId])
 
-  const subTopics = courseList[0]?.roadmap[0]?.content?.map( content => content.lesson || []) || []
+  // const { courseId } = useParams(courseList)
 
-  const secondSubTopic = courseList[0]?.roadmap[1]?.content?.map( content => content.lesson || [] ) || []
+  // const { courseList: roadmapId } = useParams()
 
-  const thirdSubTopic = courseList[0]?.roadmap[2]?.content?.map( content => content.lesson || [] ) || []
+  if (loading) {
+    return (
+      <div className="loader_container">
+        <div className="loader"></div>
+      </div>
+    )
+  }
+
+  const findRoute = courseList.find(course => course.id === courseId)
+
+  const topics = findRoute?.roadmap?.map(stage => stage.topics || []) || []
+
+  const subTopics = findRoute?.roadmap[0]?.content?.map( content => content.lesson || []) || []
+
+  const secondSubTopic = findRoute?.roadmap[1]?.content?.map( content => content.lesson || [] ) || []
+
+  const thirdSubTopic = findRoute?.roadmap[2]?.content?.map( content => content.lesson || [] ) || []
   
   // MainTopicNode
   const mainNode = topics.map((topic, index) => ({
@@ -73,7 +91,7 @@ const Roadmap = () => {
   const title = {
     id: "tn-1",
     position: { x: -70, y: -280 },
-    data: { label: courseList[0]?.title || [] },
+    data: { label: findRoute?.title || [] },
     type: "TitleNode"
   }
 
@@ -81,7 +99,7 @@ const Roadmap = () => {
   const firstStage = {
     id: "sn-1",
     position: { x: 27, y: -90 },
-    data: { label: courseList[0]?.roadmap[0]?.stage || [] },
+    data: { label: findRoute?.roadmap[0]?.stage || [] },
     type: "StageNode"
   }
 
@@ -89,14 +107,14 @@ const Roadmap = () => {
   const secondStage = {
     id: "sn-2",
     position: { x: 445, y: 120 },
-    data: { label: courseList[0]?.roadmap[1]?.stage || [] },
+    data: { label: findRoute?.roadmap[1]?.stage || [] },
     type: "StageNode"
   }
 
   const thirdStage = {
     id: "sn-3",
     position: { x: 500, y: 470 },
-    data: { label: courseList[0]?.roadmap[2]?.stage || [] },
+    data: { label: findRoute?.roadmap[2]?.stage || [] },
     type: "StageNode"
   }
 
@@ -244,7 +262,18 @@ const Roadmap = () => {
 
   return (
     <div style={{ width: "100%", height: "100vh" }}>
-      <ReactFlow nodes={nodes} edges={edges} nodeTypes={nodeTypes} fitView />
+      <ReactFlow 
+      nodes={nodes} 
+      edges={edges} 
+      nodeTypes={nodeTypes} 
+      nodesDraggable={false}
+      nodesConnectable={false}
+      elementsSelectable={false} // ❌ can’t select nodes/edges   
+      panOnDrag={false}
+      zoomOnScroll={false}
+      zoomOnPinch={false}
+      zoomOnDoubleClick={false} 
+      fitView />
 
     </div>
   )
