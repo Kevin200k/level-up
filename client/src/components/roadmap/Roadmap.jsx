@@ -18,10 +18,6 @@ const Roadmap = ({ courseId }) => {
 
   const { courses: courseList, loading } = useCourses()
 
-  useEffect(() => {
-    console.log(courseId)
-  }, [courseId])
-
   // const { courseId } = useParams(courseList)
 
   // const { courseList: roadmapId } = useParams()

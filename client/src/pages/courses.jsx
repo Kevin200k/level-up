@@ -12,10 +12,6 @@ const Courses = () => {
   const { courseId } = useParams()
   // const findCourse = courseList.find( course => course.id === courseId )
 
-  useEffect(() => {
-    console.log(courseList)
-  }, [courseList])
-
   if (loading) {
     return (
       <div className="loader_container">
