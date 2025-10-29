@@ -8,7 +8,7 @@ const ExploreCourseBody = ({ courseList }) => {
   const { roadmapId } = useParams()
   const queryParams = new URLSearchParams(location.search)
   const initialCategory = queryParams.get('category')
-  const [activeCategory, setActiveCategory] = useState(initialCategory)
+  const [activeCategory, setActiveCategory] = useState(initialCategory || 'Technology and Computing')
 
   const uniqueCategories = [...new Set(courseList.map((course) => course.type))]
   const filteredCourses = activeCategory

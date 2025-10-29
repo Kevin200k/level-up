@@ -19,7 +19,7 @@ const router = createBrowserRouter(
       <Route path='/homepage' element={<Homepage />} />
       {/* <Route path='/courses?' element={<CourseMainPage />} /> */}
       <Route path='/explorecourses?' element={<ExploreCourses />} />
-      <Route path='/explorecourses/roadmap/:courseId' element={<Courses />} />
+      <Route path='/roadmap/:courseId' element={<Courses />} />
       <Route path='courses/:id' element={<CourseDetail />} />
       {/* <Route path='/roadmap' element={<Roadmap />} /> */}
     </Route>

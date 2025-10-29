@@ -5,9 +5,9 @@ import { Code, Route, MoveLeft } from "lucide-react"
 
 const RoadmapHead = ({ courseId }) => {
 
-  const {courses: courseList} = useCourses()
+  // const {courses: courseList} = useCourses()
 
-  const findCourse = courseList.find( course => course.id === courseId )
+  // const findCourse = courseList.find( course => course.id === courseId )
 
 
   return (
@@ -21,7 +21,7 @@ const RoadmapHead = ({ courseId }) => {
         {/* Title section */}
         <div className="flex items-center gap-3 mb-3">
           <Code className="text-gray-700 w-8 h-8" />
-          <h1 className="text-5xl font-bold text-purple-800">{ findCourse.title }</h1>
+          <h1 className="text-5xl font-bold text-purple-800">Frontend Development</h1>
         </div>
 
         {/* Subtitle */}
