@@ -8,6 +8,8 @@ const Nav = () => {
   const { courses: courseList } = useCourses()
   const [search, setSearch] = useState('')
   const [showResults, setShowResults] = useState(false)
+  const [showItems, setShowItems] = useState(false)
+  const [isActive, setIsActive] = useState(false)
   const { id } = useParams()
 
   const searchResult = courseList.filter(course =>
@@ -20,9 +22,13 @@ const Nav = () => {
     setShowResults(value.length > 0)
   }
 
+  const handleShowItems = () => {
+    setShowItems(prev => !prev)
+  }
+
   return (
     <nav className="sticky top-0 z-30 bg-white shadow-sm border-b border-gray-100">
-      <div className="w-full px-4 py-3 flex justify-between items-center">
+      <div className="w-full px-4 py-3 flex justify-between items-center relative">
         {/* Logo and Dropdown */}
         <div className="flex items-center gap-2">
           <Link to="/homepage" className="flex items-center gap-2">
@@ -31,11 +37,19 @@ const Nav = () => {
 
           {/* Down Arrow (Centered and clickable) */}
           <button
-            className="flex items-center justify-center w-7 h-7 rounded-full hover:bg-gray-100 transition"
+            className={`relative p-1 rounded-full hover:bg-gray-100 transition ${isActive ? 'bg-gray-200' : ''} `}
             aria-label="Expand menu"
+            onClick={() => setIsActive(!isActive)}
           >
-            <ChevronDown size={20} className="text-gray-700" />
+            <ChevronDown size={20} className="text-gray-700"
+            onClick={handleShowItems} />
           </button>
+
+          {showItems && (
+            <div className="absolute top-full mt-2 left-3 bg-white shadow-lg rounded-lg border border-gray-100 w-48 z-50">
+              <div className="px-4 py-3 text-gray-500 italic">Not Available</div>
+            </div>
+          )}
         </div>
 
         {/* Search Bar */}

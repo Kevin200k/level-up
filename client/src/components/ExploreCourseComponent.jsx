@@ -6,7 +6,7 @@ import trophy from '../assets/images/trophy.png'
 const ExploreCourseComponent = () => {
   return (
     <motion.section
-      className="w-full px-8 py-5  bg-gradient-to-r from-purple-100 to-green-50 shadow-sm sticky top-0 z-10"
+      className="w-full px-8 py-5  bg-gradient-to-r from-green-400 via-emerald-500 to-purple-500 shadow-sm sticky top-0 z-10"
       initial={{ y: -60, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5, ease: 'easeOut' }}
