@@ -24,7 +24,7 @@ const AllRoadmapBody = ({ courseList, loading }) => {
   return (
     <>
       {/* HEADER SECTION */}
-      <section className='h-52 mb-6 w-full bg-gradient-to-r from-green-500 to-purple-500 flex flex-col justify-center items-center text-center shadow-md'>
+      <section className='h-52 w-full bg-gradient-to-r from-green-500 to-purple-500 flex flex-col justify-center items-center text-center shadow-md'>
         <h1 className='text-5xl font-bold text-white tracking-wide drop-shadow-md'>
           All Roadmaps
         </h1>
@@ -34,7 +34,7 @@ const AllRoadmapBody = ({ courseList, loading }) => {
       </section>
 
       {/* ROADMAP CARDS */}
-      <section className='grid gap-6 p-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
+      <section className='bg-gray-50 grid gap-6 p-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
         {roadmaps.map((title, index) => (
           <Link to={`/roadmap/${index}`}>
             <motion.div

@@ -11,17 +11,17 @@ import CourseMainPage from './pages/CourseMainPage'
 import Homepage from './pages/Homepage'
 import ExploreCourses from './pages/ExploreCourses'
 import CourseDetail from './pages/courseDetail'
-import Roadmap from './components/roadmap/Roadmap'
+// import Roadmap from './components/roadmap/Roadmap'
 import AllRoadmaps from './pages/AllRoadmaps'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<MainLayout />}>
-      <Route path='/homepage' element={<Homepage />} />
+      <Route index path='/homepage' element={<Homepage />} />
       {/* <Route path='/courses?' element={<CourseMainPage />} /> */}
-      <Route path='/explorecourses?' element={<ExploreCourses />} />
+      <Route path='/explorecourses' element={<ExploreCourses />} />
       <Route path='/roadmap/:courseId' element={<Courses />} />
-      <Route path='courses/:id' element={<CourseDetail />} />
+      <Route path='/courses/:id' element={<CourseDetail />} />
       <Route path='/allroadmaps' element={<AllRoadmaps />} />
     </Route>
   )

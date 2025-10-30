@@ -110,7 +110,7 @@ const ExploreCourseBody = ({ courseList }) => {
                           <h3>{course.title}</h3>
                         </Link>
                         <Link
-                          to={`roadmap/${course.id}`}
+                          to={`/roadmap/${course.id}`}
                           className="text-sm text-green-600 hover:text-green-700 hover:underline transition"
                         >
                           View Roadmap

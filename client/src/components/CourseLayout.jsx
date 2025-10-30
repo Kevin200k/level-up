@@ -63,7 +63,7 @@ const CourseLayout = () => {
           Select a Course to Get Started
         </h1>
         {/* <p className="text-gray-600 text-lg mb-3">or</p> */}
-        <Link to='/explorecourses?'>
+        <Link to='/explorecourses'>
           <motion.button
             whileHover={{ x: 5 }}
             transition={{ type: 'spring', stiffness: 200, damping: 15 }}
