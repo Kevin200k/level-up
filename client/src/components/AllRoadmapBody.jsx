@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { CirclePlus } from 'lucide-react'
+import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 
 const AllRoadmapBody = ({ courseList, loading }) => {
@@ -35,17 +36,19 @@ const AllRoadmapBody = ({ courseList, loading }) => {
       {/* ROADMAP CARDS */}
       <section className='grid gap-6 p-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
         {roadmaps.map((title, index) => (
-          <motion.div
-            key={index}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.97 }}
-            className='h-14 border border-gray-200 p-4 rounded-xl cursor-pointer bg-white hover:bg-gradient-to-r hover:from-green-500 hover:to-purple-500 hover:text-white shadow-sm hover:shadow-md transition-all duration-300 flex justify-between items-center group'
-          >
-            <span className='font-semibold text-lg tracking-tight'>
-              {title}
-            </span>
-            <CirclePlus className='w-7 h-7 text-green-600 group-hover:text-white transition-colors duration-300' />
-          </motion.div>
+          <Link to={`/roadmap/${index}`}>
+            <motion.div
+              key={index}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.97 }}
+              className='h-14 border border-gray-200 p-4 rounded-xl cursor-pointer bg-white hover:bg-gradient-to-r hover:from-green-500 hover:to-purple-500 hover:text-white shadow-sm hover:shadow-md transition-all duration-300 flex justify-between items-center group'
+            >
+              <span className='font-semibold text-lg tracking-tight'>
+                {title}
+              </span>
+              <CirclePlus className='w-7 h-7 text-green-600 group-hover:text-white transition-colors duration-300' />
+            </motion.div>
+          </Link>
         ))}
       </section>
     </>

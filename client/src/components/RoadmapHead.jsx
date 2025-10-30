@@ -31,7 +31,7 @@ const RoadmapHead = ({ courseId }) => {
   }
 
   return (
-    <div className="p-6 bg-gradient-to-r from-purple-50 to-white shadow-sm border border-gray-200 flex justify-center items-center">
+    <div className="p-6 bg-gradient-to-r from-purple-50 to-gray-200 shadow-sm border border-gray-200 flex justify-center items-center">
       <div >
         <Link to='/allroadmaps'>
           <motion.div className="flex flex-row gap-3 text-gray-700 hover:underline cursor-pointer">
