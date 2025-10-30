@@ -12,6 +12,7 @@ import Homepage from './pages/Homepage'
 import ExploreCourses from './pages/ExploreCourses'
 import CourseDetail from './pages/courseDetail'
 import Roadmap from './components/roadmap/Roadmap'
+import AllRoadmaps from './pages/AllRoadmaps'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -21,7 +22,7 @@ const router = createBrowserRouter(
       <Route path='/explorecourses?' element={<ExploreCourses />} />
       <Route path='/roadmap/:courseId' element={<Courses />} />
       <Route path='courses/:id' element={<CourseDetail />} />
-      {/* <Route path='/roadmap' element={<Roadmap />} /> */}
+      <Route path='/allroadmaps' element={<AllRoadmaps />} />
     </Route>
   )
 )

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react"
+import { Link } from 'react-router-dom'
 import { motion } from "framer-motion"
 import { useCourses } from "../context/CourseContext"
 import { Code, Route, MoveLeft } from "lucide-react"
@@ -31,11 +32,13 @@ const RoadmapHead = ({ courseId }) => {
 
   return (
     <div className="p-6 bg-gradient-to-r from-purple-50 to-white shadow-sm border border-gray-200 flex justify-center items-center">
-      <div>
-        <motion.div className="flex flex-row gap-3 text-gray-700 hover:underline cursor-pointer">
-          <MoveLeft />
-          All Roadmaps
-        </motion.div>
+      <div >
+        <Link to='/allroadmaps'>
+          <motion.div className="flex flex-row gap-3 text-gray-700 hover:underline cursor-pointer">
+            <MoveLeft />
+            All Roadmaps
+          </motion.div>
+        </Link>
 
         {/* Title section */}
         <div className="flex items-center gap-3 mb-3">
